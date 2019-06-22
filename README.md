@@ -4,6 +4,25 @@ const getType = v =>
   v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
   
   
+  
+  
+  网址参数
+使用match()适当的正则表达式获取所有键值对，Array.reduce()将它们映射并组合成单个对象。传递location.search作为适用于当前的参数url。
+  const getUrlParameters = url =>
+  url.match(/([^?=&]+)(=([^&]*))/g).reduce(
+    (a, v) => (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a), {}
+  );
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   export const dateFormat = (date, fmt = 'YYYY-MM-DD HH:mm:ss') => {
 	var o = {
 		'M+': date.getMonth() + 1,
